@@ -27,7 +27,6 @@ class m180428_075237_start extends Migration
             'parent_id' => $this->integer(11)->notNull(),
             'weight' => $this->integer(11)->defaultValue(0),
             'description' => $this->text(),
-            'frontpage' => $this->integer(1)->defaultValue(0),
             'alias' => $this->string(255)->notNull(), 
         ]);
         
