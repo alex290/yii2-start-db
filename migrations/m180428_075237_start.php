@@ -27,7 +27,8 @@ class m180428_075237_start extends Migration
             'parent_id' => $this->integer(11)->notNull(),
             'weight' => $this->integer(11)->defaultValue(0),
             'description' => $this->text(),
-            'alias' => $this->string(255)->notNull(), 
+            'alias' => $this->string(255)->notNull(),
+            'meta_description' => $this->string(255),
         ]);
         
         $this->createTable('article', [
@@ -39,6 +40,7 @@ class m180428_075237_start extends Migration
             'body' => $this->text(),
             'frontpage' => $this->integer(1)->defaultValue(0),
             'alias' => $this->string(255)->notNull(),
+            'meta_description' => $this->string(255),
             'count' => $this->integer(100)->defaultValue(0),
         ]);
         
