@@ -11,7 +11,7 @@ class m180428_075237_start extends Migration
     public function up()
     {
         $this->createTable('user', [
-            'id' => $this->primaryKey(),
+            'id' => $this->primaryKey()->unsigned(),
             'username' => $this->string(50)->notNull(),
             'first_name' => $this->string(50),
             'last_name' => $this->string(50),
@@ -22,9 +22,9 @@ class m180428_075237_start extends Migration
         ]);
         
         $this->createTable('category', [
-            'id' => $this->primaryKey(),
+            'id' => $this->primaryKey()->unsigned(),
             'name' => $this->string(255)->notNull(),
-            'parent_id' => $this->integer(11)->notNull(),
+            'parent_id' => $this->integer(11)->unsigned()->notNull(),
             'weight' => $this->integer(11)->defaultValue(0),
             'description' => $this->text(),
             'alias' => $this->string(255)->notNull(),
@@ -32,11 +32,11 @@ class m180428_075237_start extends Migration
         ]);
         
         $this->createTable('article', [
-            'id' => $this->primaryKey(),
+            'id' => $this->primaryKey()->unsigned(),
             'name' => $this->string(255)->notNull(),
-            'category_id' => $this->integer(11)->notNull(),
+            'category_id' => $this->integer(11)->unsigned()->notNull(),
             'date_create' => $this->integer(50)->notNull(),
-            'user_id' => $this->integer(11)->notNull(),
+            'user_id' => $this->integer(11)->unsigned()->notNull(),
             'body' => $this->text(),
             'frontpage' => $this->integer(1)->defaultValue(0),
             'alias' => $this->string(255)->notNull(),
